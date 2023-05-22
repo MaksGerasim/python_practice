@@ -6,22 +6,21 @@
 # которая вычисляет стоимость введенного пользователем слова. Будем считать, что на вход подается только одно слово,
 # которое содержит либо только английские, либо только русские буквы.
 #
-list_find = {1:'AEIOULNSTR',
-      	2:'DG',
-      	3:'BCMP',
-      	4:'FHVWY',
-      	5:'K',
-      	8:'JZ',
-      	10:'QZ'}
 
 
 
-# text = input('введите текст _ ')
-# text_list = list(text)
-# print(text_list)
-# sum = 0
-# for i in text_list:
-#     if i =
-#
-#
-#     print(i)
+list_txt = {1:"AEIOULNSTRaeioulnstrАВЕИНОРСТавеинорст",
+            2:"DGdgДКЛМПУдклмпу",
+            3:"BCMPbcmpБГЁЬЯбгья",
+            4:"FHVWYfhvwyЙЫйы",
+            5:"KkЖЗХЦЧжзхцч",
+            8:"JXjxШЭЮшэю",
+            10:"QZqzФЩЪфщъ"}
+summ = 0
+for i in (input('ведите текст _')):
+    for a, b in list_txt.items():
+        if i in b:
+            summ += a
+print(summ)
+
+

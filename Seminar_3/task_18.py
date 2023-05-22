@@ -16,7 +16,7 @@ for i in arr:
     if i - x == 0:
         print(x)
         quit()
-    elif i -x < 0:
+    elif i - x < 0:
         if(i - x) * -1 < ind_minus:
             ind_minus = (i - x) * -1
             x_count_minus = i
