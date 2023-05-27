@@ -13,15 +13,16 @@
 import random
 len_arr = int(input('введите количество кустов на грядке _'))
 arr = [random.randint(1, 10) for _ in range(len_arr)]
-print(arr)
-bush_1 = 0
+print('урожайность сгенерирована случайно')
+
 i = 0
-max_sum = 0
-if len_arr > 2:
-    arr.append(arr[i])
-    arr.append(arr[i + 1])
-    print(arr[i], arr[i + 1], arr[i + 2])
-    print(arr)
+arr.append(arr[i])
+arr.append(arr[i + 1])
+
+u = None
+print(arr)
+
+while u != 1:
     sum_max = 0
     start_ind = 0
     while i < len_arr:
@@ -29,11 +30,34 @@ if len_arr > 2:
         if temp_sum > sum_max:
             sum_max = temp_sum
             start_ind = i
-        print(temp_sum)
+            print(temp_sum)
         i += 1
 
-    print(f'кусты №{start_ind + 1}, №{start_ind + 2}, №{start_ind + 3},')
-print(arr)
+    if start_ind < len_arr - 2:
+        print(f'кусты №{start_ind + 1}, №{start_ind + 2}, №{start_ind + 3},')
+    elif start_ind == len_arr - 2:
+        print(f'кусты №{start_ind + 1}, №{start_ind + 2}, №{1},')
+    elif start_ind == len_arr - 1:
+        print(f'кусты №{start_ind + 1}, №{1}, №{2},')
 
-#
-# print(max_sum)
+    if start_ind < len_arr - 2:
+        arr[start_ind] = 0
+        arr[start_ind + 1] = 0
+        arr[start_ind + 2] = 0
+    elif start_ind == len_arr - 2:
+        arr[start_ind] = 0
+        arr[start_ind + 1] = 0
+        arr[start_ind + 2] = 0
+        arr[start_ind + 3] = 0
+        arr[0] = 0
+    elif start_ind == len_arr - 1:
+        arr[start_ind] = 0
+        arr[start_ind + 1] = 0
+        arr[start_ind + 2] = 0
+        arr[0] = 0
+        arr[1] = 0
+
+    if sum_max == 0:
+        u = 1
+
+print(arr)
