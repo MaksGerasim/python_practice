@@ -9,3 +9,31 @@
 #  собирает ягоды с этого куста и с двух соседних с ним.
 # Напишите программу для нахождения максимального числа ягод, которое может собрать
 #  за один заход собирающий модуль, находясь перед некоторым кустом заданной во входном файле грядки.
+
+import random
+len_arr = int(input('введите количество кустов на грядке _'))
+arr = [random.randint(1, 10) for _ in range(len_arr)]
+print(arr)
+bush_1 = 0
+i = 0
+max_sum = 0
+if len_arr > 2:
+    arr.append(arr[i])
+    arr.append(arr[i + 1])
+    print(arr[i], arr[i + 1], arr[i + 2])
+    print(arr)
+    sum_max = 0
+    start_ind = 0
+    while i < len_arr:
+        temp_sum = arr[i] + arr[i + 1] + arr[i + 2]
+        if temp_sum > sum_max:
+            sum_max = temp_sum
+            start_ind = i
+        print(temp_sum)
+        i += 1
+
+    print(f'кусты №{start_ind + 1}, №{start_ind + 2}, №{start_ind + 3},')
+print(arr)
+
+#
+# print(max_sum)
