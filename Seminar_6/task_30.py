@@ -5,9 +5,11 @@
 
 
 def progression(a1=int(input('a1 = ')), n=int(input('n = ')), d=int(input('d = '))):
-    if n > 0:
-        res_an = a1 + (n - 1) * d
-        print(res_an)
+    list_progression = []
+    while n > 0:
+        n -= 1
+        an = a1 + n * d
+        list_progression.append(an)
+    return list_progression
 
-
-progression()
+print(progression())
