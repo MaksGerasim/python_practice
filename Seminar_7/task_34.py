@@ -11,3 +11,16 @@
 # *Пример:*
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да
 #     **Вывод:** Парам пам-пам
+
+text_poem = input('введите текст_ ')
+guide_ru = {"а", "е", "ё", "и", "о", "у", "ы", "э", "ю", "я"}
+count_let = []
+count = 0
+for i in text_poem:
+    if (i.isspace()) != True:
+        if i in guide_ru:
+            count += 1
+        else:
+            count_let.append(count)
+            count = 0
+print(count_let)
