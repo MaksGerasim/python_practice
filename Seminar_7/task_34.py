@@ -13,8 +13,7 @@
 #     **Вывод:** Парам пам-пам
 
 text_poem = input('введите текст_ ')
-result_text = text_poem.ljust(9, ' ')
-print(result_text)
+result_text = text_poem.ljust(len(text_poem) + 1, ' ')
 guide_ru = {"а", "е", "ё", "и", "о", "у", "ы", "э", "ю", "я"}
 count_let = []
 count = 0
