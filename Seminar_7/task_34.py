@@ -26,4 +26,10 @@ for i in result_text:
         count_let.append(count)
         count = 0
 print(count_let)
-
+sum_el = 0
+for el in count_let:
+    sum_el += el
+if sum_el / len(count_let) == el:
+    print('“Парам пам-пам”')
+else:
+    print('“Пам парам”')
