@@ -8,9 +8,6 @@
 # **Ввод:** `print_operation_table(lambda x, y: x * y) `
 # **Вывод:**
 
-
-operation = lambda x, y: x * y
-
 def print_operation_table(operation, num_rows, num_columns):
     x = 0
     y = 0
@@ -25,9 +22,8 @@ def print_operation_table(operation, num_rows, num_columns):
             print(a[i][j], end=" ")
         print()
 
-
-
-print_operation_table(operation, num_rows=3, num_columns=3)
+operation = eval(input('введите функцию lambda_'))
+print_operation_table(operation, num_rows=6, num_columns=6)
 
 
 
