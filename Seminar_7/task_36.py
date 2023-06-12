@@ -9,32 +9,25 @@
 # **Вывод:**
 
 
-num_rows = 3
-num_columns = 3
-result = 0
-x = 0
-y = 0
-a = [[0 for x in range(num_columns)] for x in range(num_rows)]
-print(a)
-for i in range(len(a)):
+operation = lambda x, y: x * y
+
+def print_operation_table(operation, num_rows, num_columns):
+    x = 0
     y = 0
-    x += 1
-    for j in range(len(a[i])):
-        y += 1
-        result = x * y
-        a[i][j] = result
-        print(a[i][j], end=" ")
-    print()
+    a = [[0 for x in range(num_columns)] for x in range(num_rows)]
+    for i in range(len(a)):
+        y = 0
+        x += 1
+        for j in range(len(a[i])):
+            y += 1
+            result = operation(x, y)
+            a[i][j] = result
+            print(a[i][j], end=" ")
+        print()
 
 
 
-
-# for i in range(len(a)):
-#     for j in range(len(a[i])):
-#         result += 1
-#         a[i][j] = result
-#         print(a[i][j], end=" ")
-#     print()
+print_operation_table(operation, num_rows=3, num_columns=3)
 
 
 
