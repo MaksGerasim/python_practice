@@ -4,10 +4,9 @@
 
 import csv
 def print_guide(file_csv):
-    with open(file_csv, encoding='utf-8') as p_file:
-        file_reader = csv.reader(p_file)
-        for row in file_reader:
-            print(row)
+    print_f = open(file_csv, 'r', encoding='utf-8')
+    print(print_f.read())
+    print_f.close()
 
 
 
