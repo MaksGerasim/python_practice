@@ -3,6 +3,7 @@
 # функционал для изменения и удаления данных
 
 import csv
+import sys
 def print_guide(file_csv):
     print_f = open(file_csv, 'r', encoding='utf-8')
     print(print_f.read())
@@ -10,9 +11,10 @@ def print_guide(file_csv):
 
 def create_new_rows():
     new_rows = []
-    new_rows.append(input('введите фамилию_'))
-    new_rows.append(input('введите имя_'))
-    new_rows.append(input('введите номер телефона_'))
+    print('Введите данные для новой записи:')
+    new_rows.append(input('фамилия_'))
+    new_rows.append(input('имя_'))
+    new_rows.append(input('номер телефона_'))
     return (new_rows)
 
 def writ_rows_guide(file_csv, list_data):
@@ -20,7 +22,8 @@ def writ_rows_guide(file_csv, list_data):
     with open(file_csv, 'a', newline='', encoding='utf-8') as f:
         writer_object = writer(f)
         writer_object.writerow(list_data)
-        f.close()
+        print(f'запись сохранена: {list_data}')
+    f.close()
 
 def telephone_number_search(file_csv):
     f = open(file_csv, 'r', encoding='utf-8')
@@ -35,13 +38,14 @@ def delete_rows_guide(file_csv):
     file = f.readlines()
     f.close()
     f = open(file_csv, 'w', encoding='utf-8')
-    data_search = {input('введите фамилию_'), input('введите имя_')}
+    data_search_f = {input('введите фамилию_')}
+    data_search_n = {input('введите имя_')}
     for x in file:
         list_x = x.split(',')
-        if (list_x[0] not in data_search) and (list_x[1] not in data_search):
-            f.write(x)
-        else:
+        if (list_x[0] in data_search_f) and (list_x[1] in data_search_n):
             print(f'запись (_{list_x[0]}, {list_x[1]}_) удалена')
+        else:
+            f.write(x)
     f.close()
 
 def change_rows(file_csv):
@@ -65,9 +69,30 @@ def change_rows(file_csv):
             f.write(x)
     f.close()
 
-new_rows = create_new_rows()
-writ_rows_guide(file_csv='telephone_directory.csv', list_data=new_rows)
-print_guide(file_csv='telephone_directory.csv')
-#telephone_number_search(file_csv='telephone_directory.csv')
-delete_rows_guide('telephone_directory.csv')
-# print_guide(file_csv='telephone_directory.csv')
+manual = 'команды для работы с программой:\n' \
+         'для добавления новой записи: "добавить"\n' \
+        'для удаления существующей записи: "удалить"\n' \
+        'для изменения существующей записи: "изменить"\n' \
+        'для поиска номера телефона: "поиск"\n' \
+        'для вывода справочника: "показать"\n' \
+
+print(manual)
+
+my_commannd = input('введите команду : ')
+if my_commannd == 'добавить':
+    new_rows = create_new_rows()
+    writ_rows_guide(file_csv='telephone_directory.csv', list_data=new_rows)
+elif my_commannd == 'удалить':
+    delete_rows_guide('telephone_directory.csv')
+elif my_commannd == 'изменить':
+    change_rows(file_csv='telephone_directory.csv')
+elif my_commannd == 'поиск':
+    telephone_number_search(file_csv='telephone_directory.csv')
+elif my_commannd == 'показать':
+    print_guide(file_csv='telephone_directory.csv')
+else:
+    print('Введенная команда не верна')
+
+
+
+
