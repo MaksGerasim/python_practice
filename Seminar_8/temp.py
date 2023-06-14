@@ -2,13 +2,19 @@ import csv
 
 f = open('telephone_directory.csv', 'r', encoding='utf-8')
 file = f.readlines()
-print(file)
-f.close()
-f = open('telephone_directory.csv', 'w', encoding='utf-8')
-data_search = {'Петров', 'Петр'}
+
 for x in file:
-    f.write(x)
+    x.replace(" ", "")
     print(x)
+    list_x = x.split(',')
+    print(list_x)
+    new_x = "".join(list_x)
+    print(new_x)
+    new_x.replace(" ", "")
+    print(new_x)
+
+f.close()
+
 
 
 f.close()
@@ -37,6 +43,6 @@ f.close()
     #     print('“Пам парам”')
 
 
-# Ивано, Иван, 67777777
+# Иванов, Иван, 67777777
 # Петров, Петр, 98888888
 # Семенов, Семен, 89999999
